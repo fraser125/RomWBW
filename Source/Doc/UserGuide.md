@@ -836,21 +836,25 @@ The second row of the front panel is composed of switches that allow
 you to control a few aspects of the system startup.
 
 The first two switches affect the device used as the console initially.
-Setting the CRT/Serial switch will cause the system to boot directly 
-to an attached CRT device (if available).  Setting the Pri/Sec switch 
-will cause the system to boot to the secondary Serial or CRT device 
-(depending on the setting of the first switch).
+
+| CRT/Serial | Sec/Pri | Explanation  (if available)                                 |
+|------------|---------|-------------------------------------------------------------|
+| CRT        | Pri     | Primary Cathode Ray Tube device (high speed console)        |
+| CRT        | Sec     | Secondary Cathode Ray Tube device (high speed console)      |
+| Serial     | Pri     | Boot Console is Primary Serial Port if available            |
+| Serial     | Sec     | Boot Console is Secondary Serial Port if available          |
 
 The final six switches allow you to cause the system to automatically
-boot into a desired function.  The Auto/Menu switch must be set to
-enable this, otherwise the normal ROM Loader prompt will be used.
-If the Disk/ROM switch is not set, then you can use the last 3
-switches to select a ROM app to auto-start.  If the Disk/ROM switch is
-set, then the system will attempt a disk boot based on the following
-switches.  The Floppy/Hard switch can be used to boot to a Floppy or
-Hard Disk.  In either case, the first Floppy or Hard Disk will be used
-for the boot.  If a Hard Disk boot is selected, then the last three
-switches can be used to select any of the first 8 slices.
+boot into a desired function.  
+
+| Auto/Menu | Disk/ROM | Floppy/Hard | ROM/App/Boot/Slice | Explanation              |
+|-----------|----------|-------------|--------------------|--------------------------|
+| Menu      |    -     |      -      |          -         | Boot to RomWBW Menu      |
+| Auto      | ROM      |      -      |   #  |   #  |   #  | Boot selected ROM Index  |
+| Auto      | Disk     | Floppy      |   -  |   -  |   -  | Boot First Floppy        |
+| Auto      | Disk     | Hard        |   #  |   #  |   #  | Boot Selected Disk Index |
+'-' Ignored
+'#' bit flag to toggle 1 of 3 bits (8 choices) MSB...LSB
 
 # Disk Management
 
